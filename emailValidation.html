@@ -1,0 +1,81 @@
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+
+$(document).ready(function(e) {
+    $('#btnValidate').click(function() {
+        var sEmail = $('#txtEmail').val();
+        if ($.trim(sEmail).length == 0) {
+            alert('Please enter valid email address');
+            e.preventDefault();
+        }
+        if (validateEmail(sEmail)) {
+            alert('Email is valid');
+        }
+        else {
+            alert('Invalid Email Address');
+            e.preventDefault();
+        }
+    });
+});
+
+function validateEmail(sEmail) {
+    var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    if (filter.test(sEmail)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+//Email Address simple function//
+$(function(){
+
+
+$('.simpleBtn').click(function() {
+	
+	var inputValue =$('#simpleInput').val();
+    var testEmail = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+	if(inputValue=='')
+	{
+	alert('Please enter valid email address');
+	}
+	else if(!testEmail.test(inputValue))
+	{
+	alert('Invalid Email Address');
+	}
+    else{
+	 alert('Email is valid');
+	}
+	
+	
+	
+});
+
+
+
+})
+
+
+
+
+</script>
+<style>
+
+</style>
+</head>
+<body>
+Email Address: <input type='email' id='txtEmail'/><br/>
+<input type='submit' id='btnValidate' Value='Validate Email' />
+
+<br></br>
+
+Email Address simple function: <input type='email' id='simpleInput'/>
+<br>
+<input type='submit' class='simpleBtn' Value='Validate Email'/>
+
+
+</body>
+</html>
